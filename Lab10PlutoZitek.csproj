@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="Lab9Files\**"/>
+    <Compile Remove="Lab9Files\**"/>
+  </ItemGroup>
+
 </Project>
