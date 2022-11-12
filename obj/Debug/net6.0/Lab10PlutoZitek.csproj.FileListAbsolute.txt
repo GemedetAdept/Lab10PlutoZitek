@@ -1,0 +1,15 @@
+C:\Users\vivian.zitek\Programming\cSharp\Lab10PlutoZitek\bin\Debug\net6.0\Lab10PlutoZitek.exe
+C:\Users\vivian.zitek\Programming\cSharp\Lab10PlutoZitek\bin\Debug\net6.0\Lab10PlutoZitek.deps.json
+C:\Users\vivian.zitek\Programming\cSharp\Lab10PlutoZitek\bin\Debug\net6.0\Lab10PlutoZitek.runtimeconfig.json
+C:\Users\vivian.zitek\Programming\cSharp\Lab10PlutoZitek\bin\Debug\net6.0\Lab10PlutoZitek.dll
+C:\Users\vivian.zitek\Programming\cSharp\Lab10PlutoZitek\bin\Debug\net6.0\ref\Lab10PlutoZitek.dll
+C:\Users\vivian.zitek\Programming\cSharp\Lab10PlutoZitek\bin\Debug\net6.0\Lab10PlutoZitek.pdb
+C:\Users\vivian.zitek\Programming\cSharp\Lab10PlutoZitek\obj\Debug\net6.0\Lab10PlutoZitek.csproj.AssemblyReference.cache
+C:\Users\vivian.zitek\Programming\cSharp\Lab10PlutoZitek\obj\Debug\net6.0\Lab10PlutoZitek.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vivian.zitek\Programming\cSharp\Lab10PlutoZitek\obj\Debug\net6.0\Lab10PlutoZitek.AssemblyInfoInputs.cache
+C:\Users\vivian.zitek\Programming\cSharp\Lab10PlutoZitek\obj\Debug\net6.0\Lab10PlutoZitek.AssemblyInfo.cs
+C:\Users\vivian.zitek\Programming\cSharp\Lab10PlutoZitek\obj\Debug\net6.0\Lab10PlutoZitek.csproj.CoreCompileInputs.cache
+C:\Users\vivian.zitek\Programming\cSharp\Lab10PlutoZitek\obj\Debug\net6.0\Lab10PlutoZitek.dll
+C:\Users\vivian.zitek\Programming\cSharp\Lab10PlutoZitek\obj\Debug\net6.0\ref\Lab10PlutoZitek.dll
+C:\Users\vivian.zitek\Programming\cSharp\Lab10PlutoZitek\obj\Debug\net6.0\Lab10PlutoZitek.pdb
+C:\Users\vivian.zitek\Programming\cSharp\Lab10PlutoZitek\obj\Debug\net6.0\Lab10PlutoZitek.genruntimeconfig.cache
