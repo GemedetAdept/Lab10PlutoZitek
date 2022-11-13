@@ -1,8 +1,12 @@
 public class MenuDriver {
 
 	public List<string> menuOptions = new List<string>();
+	List<Action> optionActions = new List<Action>();
 
-	public void AddOption(string[] options) {
+	public bool menuLoop = true;
+	public int activeItem = 0;
+
+	public void AddOptions(string[] options) {
 
 		for (int i=0; i < options.Length; i++) {
 
@@ -10,7 +14,7 @@ public class MenuDriver {
 		}
 	}
 
-	public void DisplayMenu(int activeItem) {
+	public void DisplayMenu() {
 
 		string selector = "> ";
 
@@ -27,18 +31,18 @@ public class MenuDriver {
 		}
 	}
 
-	public int SelectionDriver(int activeItem) {
+	public int SelectionDriver() {
 
 		int optionsCount = menuOptions.Count;
 		var keyInput = Console.ReadKey(false);
 
-		if (keyInput.Key == ConsoleKey.UpArrow && activeItem !>= 0) {
+		if (keyInput.Key == ConsoleKey.UpArrow && activeItem > 0) {
 
 			activeItem -= 1;
 			return activeItem;
 		}
 
-		else if (keyInput.Key == ConsoleKey.DownArrow && activeItem !<= optionsCount) {
+		else if (keyInput.Key == ConsoleKey.DownArrow && activeItem < optionsCount-1) {
 
 			activeItem += 1;
 			return activeItem;

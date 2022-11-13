@@ -1,35 +1,36 @@
 // CS 1400 - Lab 10, Pluto Zitek
 
+MenuDriver selectionMenu = new MenuDriver();
+
+
+
 string[] options = new string[] {
 
 	"Option A", "Option B", "Option C"	
 };
+selectionMenu.AddOptions(options);
 
-MenuDriver selectionMenu = new MenuDriver();
-
-bool boolMainMenu = true;
-selectionMenu.AddOption(options);
-int activeItem = 0;
-while (boolMainMenu){
+while (selectionMenu.menuLoop){
 
 	Console.Clear();
-
-	selectionMenu.DisplayMenu(activeItem);
-	activeItem = selectionMenu.SelectionDriver(activeItem);
+	selectionMenu.DisplayMenu();
+	selectionMenu.SelectionDriver();
 }
 
-Item newItem = new Item();
+void showItem() {
+	Item newItem = new Item();
 
-PrintData(newItem);
+	PrintData(newItem);
 
-void PrintData(Item itemObject) {
+	void PrintData(Item itemObject) {
 
-	Console.WriteLine(itemObject.title);
-	Console.WriteLine(itemObject.description);
-	Console.WriteLine(itemObject.isComplete);
-	Console.WriteLine(itemObject.startTime);
+		Console.WriteLine(itemObject.title);
+		Console.WriteLine(itemObject.description);
+		Console.WriteLine(itemObject.isComplete);
+		Console.WriteLine(itemObject.startTime);
 
-	if (itemObject.endTime !> itemObject.startTime) {
-		Console.WriteLine(itemObject.endTime);
+		if (itemObject.endTime !> itemObject.startTime) {
+			Console.WriteLine(itemObject.endTime);
+		}
 	}
 }
