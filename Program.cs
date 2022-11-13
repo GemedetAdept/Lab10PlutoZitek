@@ -2,19 +2,35 @@
 
 MenuDriver selectionMenu = new MenuDriver();
 
-
-
 string[] options = new string[] {
 
-	"Option A", "Option B", "Option C"	
+	"Option A", 
+	"Option B", 
+	"Option C"	
 };
+
 selectionMenu.AddOptions(options);
 
 while (selectionMenu.menuLoop){
 
 	Console.Clear();
 	selectionMenu.DisplayMenu();
-	selectionMenu.SelectionDriver();
+	selectionMenu.SetMenuCursor();
+
+	switch(selectionMenu.selectedItem) {
+
+		case 0:
+			showItem();
+			break;
+		case 1: 
+			showItem();
+			break;
+		case 2:
+			showItem();
+			break;
+		default:
+			break;
+	}
 }
 
 void showItem() {

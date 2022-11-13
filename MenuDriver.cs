@@ -1,10 +1,10 @@
 public class MenuDriver {
 
-	public List<string> menuOptions = new List<string>();
-	List<Action> optionActions = new List<Action>();
+	List<string> menuOptions = new List<string>();
 
 	public bool menuLoop = true;
-	public int activeItem = 0;
+	int activeItem = 0;
+	public int selectedItem = -1;
 
 	public void AddOptions(string[] options) {
 
@@ -31,7 +31,7 @@ public class MenuDriver {
 		}
 	}
 
-	public int SelectionDriver() {
+	public void SetMenuCursor() {
 
 		int optionsCount = menuOptions.Count;
 		var keyInput = Console.ReadKey(false);
@@ -39,15 +39,18 @@ public class MenuDriver {
 		if (keyInput.Key == ConsoleKey.UpArrow && activeItem > 0) {
 
 			activeItem -= 1;
-			return activeItem;
 		}
 
 		else if (keyInput.Key == ConsoleKey.DownArrow && activeItem < optionsCount-1) {
 
 			activeItem += 1;
-			return activeItem;
 		}
 
-		else return activeItem;
+		else if (keyInput.Key == ConsoleKey.Enter) {
+			
+			menuLoop = false;
+			selectedItem = activeItem;
+		}
 	}
+
 }
