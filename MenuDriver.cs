@@ -3,8 +3,8 @@ namespace menudriver {
 
 		List<string> menuOptions = new List<string>();
 
-		public bool menuLoop = true;
 		int activeItem = 0;
+		public bool menuLoop = true;
 		public int selectedItem = -1;
 
 		public void AddOptions(string[] options) {
