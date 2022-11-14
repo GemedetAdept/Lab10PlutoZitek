@@ -2,9 +2,13 @@ class Item {
 
 	public string title; 
 	public string description; 
+	public int index;
 	public bool isComplete;
 	public DateTime startTime;
 	public DateTime endTime;
+
+	public static int incompleteItems = 0;
+	public int completeItems = 0;
 
 	public Item() {
 
@@ -27,6 +31,23 @@ class Item {
 		Console.Write("Enter description: ");
 		newItem.description = Console.ReadLine();
 
+		incompleteItems += 1;
+		newItem.index = incompleteItems;
+
 		return newItem;
+	}
+
+	public static void DrawItem(Item item) {
+
+		string indexString = item.index.ToString();
+		string indexLineWidth = new string ('┄', indexString.Length);
+
+		string titleLineWidth = new string ('┄', item.title.Length);
+
+		string descriptionLineWidth = new string (' ', item.description.Length);
+
+		Console.WriteLine("┌┄" + indexLineWidth + "┄┬┄" + titleLineWidth + "┄┐");
+		Console.WriteLine("┆ " + item.index + " ┆ " + item.title + " ┆");
+
 	}
 }

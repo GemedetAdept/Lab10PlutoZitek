@@ -44,12 +44,14 @@ void displayItems(List<Item> incomplete, List<Item> complete) {
 
 	Console.Clear();
 
-	foreach (Item item in incomplete) {
+	for (int i=0; i < incomplete.Count; i++) {
 
-			Console.WriteLine(item.title);
-			Console.WriteLine(item.description);
-			Console.WriteLine(item.isComplete);
-			Console.WriteLine(item.startTime);
+		Item.DrawItem(incomplete[i]);
+
+		// Console.WriteLine($"[{i}] {incomplete[i].title}");
+		// Console.WriteLine($"\t{incomplete[i].description}");
+		// Console.WriteLine($"\t{incomplete[i].isComplete}");
+		// Console.WriteLine($"\t{incomplete[i].startTime}");
 	}
 
 	Console.ReadKey();
