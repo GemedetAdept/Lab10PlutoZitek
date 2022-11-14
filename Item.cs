@@ -23,9 +23,15 @@ class Item {
 
 		Console.Clear();
 
-		Console.Write("Enter title: ");
+		// Use Get/UseCursorPosition to have character limit underline
+		Console.Write("Enter title (0-72 chars): ");
+		(int, int) inputTitle = Console.GetCursorPosition();
+		Snippet.LineBreak();
+		Console.Write(new string ('┄', 26+72) + "\n");
+		Console.SetCursorPosition(inputTitle.Item1, inputTitle.Item2);
 		newItem.title = Console.ReadLine();
 
+		Snippet.LineBreak();
 		Snippet.LineBreak();
 
 		Console.Write("Enter description: ");
@@ -37,17 +43,53 @@ class Item {
 		return newItem;
 	}
 
+	// Displays the to-do items in a pretty ANSI box
 	public static void DrawItem(Item item) {
 
 		string indexString = item.index.ToString();
 		string indexLineWidth = new string ('┄', indexString.Length);
 
-		string titleLineWidth = new string ('┄', item.title.Length);
+		string boxLineWidth = new string ('┄', 72);
+		string boxSpaceWidth = new string (' ', 72-item.title.Length);
 
-		string descriptionLineWidth = new string (' ', item.description.Length);
+		int startTimeLength = item.startTime.ToString().Length;
+		string startSpaceWidth = new string (' ', 76-startTimeLength);
+		string startLineWidth = new string ('┄', 76);
 
-		Console.WriteLine("┌┄" + indexLineWidth + "┄┬┄" + titleLineWidth + "┄┐");
-		Console.WriteLine("┆ " + item.index + " ┆ " + item.title + " ┆");
+		char[] descriptionChars = item.description.ToArray();
+		List<char> descriptionSplit = new List<char>();
 
+		descriptionSplit.Add('┆');
+		descriptionSplit.Add(' ');
+		for (int i=0; i < item.description.Length; i++) {
+
+			if (i % 75 == 0 && i != 0) {
+
+				if (descriptionChars[i] == '.') descriptionSplit.Add(' ');
+				if (descriptionChars[i] != ' ') descriptionSplit.Add('-');
+
+				descriptionSplit.Add(' ');
+				descriptionSplit.Add('┆');
+				descriptionSplit.Add('\n');
+				descriptionSplit.Add('┆');
+				descriptionSplit.Add(' ');
+			}
+
+			descriptionSplit.Add(descriptionChars[i]);
+		}
+
+		string boxTopLine = "┌┄" + indexLineWidth + "┄┬┄" + boxLineWidth + "┄┐";
+		Console.WriteLine(boxTopLine);
+		Console.WriteLine("┆ " + item.index + " ┆ " + item.title + boxSpaceWidth + " ┆");
+		Console.WriteLine("├┄" + indexLineWidth + "┄┴┄" + boxLineWidth + "┄┤");
+
+		foreach (char character in descriptionSplit) Console.Write(character);
+		Snippet.LineBreak();
+
+		Console.WriteLine("├┄" + indexLineWidth + "┄┄┄" + boxLineWidth + "┄┤");
+		Console.WriteLine("┆ " + item.startTime + startSpaceWidth + " ┆");
+		Console.WriteLine("└┄" + startLineWidth + "┄┘");
+
+		Snippet.LineBreak();
 	}
 }

@@ -44,15 +44,14 @@ void displayItems(List<Item> incomplete, List<Item> complete) {
 
 	Console.Clear();
 
-	for (int i=0; i < incomplete.Count; i++) {
+	string headerText = "  Current To-Do Items  ";
+	int headerCenter = (Console.WindowWidth - headerText.Length)/2;
+	string displayHeader = new string(' ', headerCenter);
 
+	Console.WriteLine(displayHeader + headerText);
+		
+	for (int i=0; i < incomplete.Count; i++)
 		Item.DrawItem(incomplete[i]);
-
-		// Console.WriteLine($"[{i}] {incomplete[i].title}");
-		// Console.WriteLine($"\t{incomplete[i].description}");
-		// Console.WriteLine($"\t{incomplete[i].isComplete}");
-		// Console.WriteLine($"\t{incomplete[i].startTime}");
-	}
 
 	Console.ReadKey();
 	mainMenu();
