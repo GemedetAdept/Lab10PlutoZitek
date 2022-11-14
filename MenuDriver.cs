@@ -34,6 +34,8 @@ namespace menudriver {
 
 		public void SetMenuCursor() {
 
+			selectedItem = -1;
+
 			int optionsCount = menuOptions.Count;
 			var keyInput = Console.ReadKey(false);
 
@@ -49,10 +51,8 @@ namespace menudriver {
 
 			else if (keyInput.Key == ConsoleKey.Enter) {
 				
-				menuLoop = false;
 				selectedItem = activeItem;
 			}
 		}
-
 	}
 }

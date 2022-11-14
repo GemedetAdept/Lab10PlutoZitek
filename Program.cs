@@ -1,53 +1,57 @@
 using menudriver;
 // CS 1400 - Lab 10, Pluto Zitek
 
-MenuDriver selectionMenu = new MenuDriver();
+List<Item> incompleteItems = new List<Item>();
+List<Item> completeItems = new List<Item>();
 
+MenuDriver selectionMenu = new MenuDriver();
 string[] options = new string[] {
 
-	"Option A", 
-	"Option B", 
-	"Option C"	
+	"Create New To-Do Item",
+	"View Current To-Do Items",
+	"Exit Program"
 };
-
 selectionMenu.AddOptions(options);
 
-while (selectionMenu.menuLoop){
+void mainMenu() {
+	while (selectionMenu.menuLoop){
 
-	Console.Clear();
-	selectionMenu.DisplayMenu();
-	selectionMenu.SetMenuCursor();
+		Console.Clear();
+		selectionMenu.DisplayMenu();
+		selectionMenu.SetMenuCursor();
 
-	switch(selectionMenu.selectedItem) {
+		switch(selectionMenu.selectedItem) {
 
-		case 0:
-			showItem();
-			break;
-		case 1: 
-			showItem();
-			break;
-		case 2:
-			showItem();
-			break;
-		default:
-			break;
+			case 0:
+				Item newItem = new Item();
+				incompleteItems.Add(Item.CreateItem(newItem));
+				continue;
+			case 1: 
+				displayItems(incompleteItems, completeItems);
+				break;
+			case 2:
+				// showItem();
+				break;
+			default:
+				break;
+		}
 	}
 }
 
-void showItem() {
-	Item newItem = new Item();
+mainMenu();
 
-	PrintData(newItem);
+void displayItems(List<Item> incomplete, List<Item> complete) {
 
-	void PrintData(Item itemObject) {
+	Console.Clear();
 
-		Console.WriteLine(itemObject.title);
-		Console.WriteLine(itemObject.description);
-		Console.WriteLine(itemObject.isComplete);
-		Console.WriteLine(itemObject.startTime);
+	foreach (Item item in incomplete) {
 
-		if (itemObject.endTime !> itemObject.startTime) {
-			Console.WriteLine(itemObject.endTime);
-		}
+			Console.WriteLine(item.title);
+			Console.WriteLine(item.description);
+			Console.WriteLine(item.isComplete);
+			Console.WriteLine(item.startTime);
 	}
+
+	Console.ReadKey();
+	mainMenu();
 }

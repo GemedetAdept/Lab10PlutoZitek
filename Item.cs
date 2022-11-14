@@ -15,4 +15,18 @@ class Item {
 		endTime = startTime.AddDays(-1);
 	}
 
+	public static Item CreateItem(Item newItem) {
+
+		Console.Clear();
+
+		Console.Write("Enter title: ");
+		newItem.title = Console.ReadLine();
+
+		Snippet.LineBreak();
+
+		Console.Write("Enter description: ");
+		newItem.description = Console.ReadLine();
+
+		return newItem;
+	}
 }
